@@ -42,7 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+  Closure allows code to have a memory of what results came before it.
 2. Study the following code, then answer the questions below.
+
 
 ```js
 function personalDice(name){
@@ -63,8 +65,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+  I dont think closure is being used, since information is not being saved and passed onto another piece of code, but I don't know.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+  The string "Dan rolled a " is always the same but the number he rolls is randomized by the newRoll
+
 c. What is the lexical scope of `newRoll`? 
+  function scope
 
 ### Task 3 - Stretch Goals
 

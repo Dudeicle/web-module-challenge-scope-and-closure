@@ -27,11 +27,11 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ *  Not sure, I think they are the same in this scenario but counter1 may be able to take more complex data
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ *  I think counter1 uses closure, the const counter1 = counterMaker()
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *  Counter 1 would be best when the count needs to increase by more than 1, maybe. Not totally clear.
 */
 
 // counter1 code
@@ -56,11 +56,11 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+    return Math.round(Math.random() * 2);
 }
+
+console.log(inning());
 
 /* Task 3: finalScore()
 
@@ -76,12 +76,19 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(num){
+  let homeScore = 0;
+  let awayScore = 0;
 
-  /*Code Here*/
-
+  for (let i = 0; i < num; i++){
+    homeScore = homeScore + inning();
+    awayScore = awayScore + inning();
+  }
+  let score = { home: homeScore, away: awayScore };
+  return score
 }
 
+console.log(finalScore(9));
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
@@ -103,8 +110,58 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(num, num) {
+  let homeScore = 0;
+  let awayScore = 0;
+
+  for (let i = 0; i < num; i++){
+    if (i === 0){
+      homeScore = homeScore + inning();
+      awayScore = awayScore + inning();
+      console.log((i+1) + "st inning: " + homeScore + " - " + awayScore);
+    } else 
+    if (i === 1){
+      homeScore = homeScore + inning();
+      awayScore = awayScore + inning();
+      console.log((i+1) + "nd inning: " + homeScore + " - " + awayScore);
+    } else
+    if (i === 2){
+      homeScore = homeScore + inning();
+      awayScore = awayScore + inning();
+      console.log((i+1) + "rd inning: " + homeScore + " - " + awayScore);
+    } else 
+    if (i < num-1){
+      homeScore = homeScore + inning();
+      awayScore = awayScore + inning();
+      console.log((i+1) + "th inning: " + homeScore + " - " + awayScore);
+    } else
+    if (i = num-1){
+      homeScore = homeScore + inning();
+      awayScore = awayScore + inning();
+      console.log((i+1) + "th inning: " + homeScore + " - " + awayScore);
+      console.log("")
+      console.log("Final Score: " + homeScore + " - " + awayScore);
+  }
+} 
+}
+console.log(scoreboard(9, 9));
+
+
+
+console.log("NEW STUFF")
+
+function personalDice(name){
+  return function(){
+      // generate random number between 1 and 6
+    const newRoll = Math.floor(Math.random() * 6);
+    console.log(`${name} rolled a ${newRoll}`)
+  }
 }
 
+const dansRoll = personalDice("Dan");
 
+const zoesRoll = personalDice("Zoe");
+
+
+dansRoll();
+dansRoll();
